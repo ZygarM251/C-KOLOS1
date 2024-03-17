@@ -1,0 +1,54 @@
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
+
+        void RysujLinie(double x1, double x2, double y1, double y2, int grubość, SolidColorBrush kolor)
+        {
+            var myLine = new Line();
+            myLine.Stroke = kolor;
+            myLine.X1 = x1;
+            myLine.X2 = x2;
+            myLine.Y1 = y1;
+            myLine.Y2 = y2;
+            myLine.StrokeThickness = grubość;
+            Schodki.Children.Add(myLine);
+
+        }
+
+        private void Rysuj_Click(object sender, RoutedEventArgs e)
+        {
+            double szerokosc = 400;
+            double wysokosc = 400;
+            int stopnie = 10; 
+
+            SolidColorBrush kolor = Brushes.Black; 
+            int grubość = 1; 
+
+            double szerSchodka = szerokosc / stopnie;
+            double wysSchodka = wysokosc / stopnie;
+
+            for (int i = 0; i < stopnie; i++)
+            {
+                double x = i * szerSchodka;
+                double y = wysokosc - (i + 1) * wysSchodka;
+                double width = szerokosc - i * szerSchodka;
+                double height = wysSchodka;
+
+                Rectangle rectangle = new Rectangle();
+                rectangle.Stroke = kolor;
+                rectangle.StrokeThickness = grubość;
+                rectangle.Fill = Brushes.Transparent;
+                rectangle.Width = width;
+                rectangle.Height = height;
+                Canvas.SetLeft(rectangle, x);
+                Canvas.SetTop(rectangle, y);
+
+                Schodki.Children.Add(rectangle);
+            }
+
+        }
+    }
+}

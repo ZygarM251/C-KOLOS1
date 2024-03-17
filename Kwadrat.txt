@@ -1,0 +1,16 @@
+Rectangle kadlub = new Rectangle();
+kadlub.Width = 200;
+kadlub.Height = 100;
+kadlub.Fill = Brushes.Black;
+Canvas.SetLeft(kadlub, 40);
+Canvas.SetTop(kadlub, 140);
+
+canvas.Children.Add(kadlub);
+
+Rectangle wieza = new Rectangle();
+wieza.Width = 100;
+wieza.Height = 50;
+wieza.Fill = Brushes.Black;
+Canvas.SetLeft(wieza, 100);
+Canvas.SetTop(wieza, 90);
+canvas.Children.Add(wieza);

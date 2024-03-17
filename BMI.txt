@@ -1,0 +1,66 @@
+private void btnOblicz_Click(object sender, RoutedEventArgs e)
+        {
+            double waga, wzrost, bmi;
+            string komunikat, bodymassindex;
+            try
+            {
+                waga = Convert.ToDouble(txtWaga.Text);
+                wzrost = Convert.ToDouble(txtWzrost.Text);
+                if (waga > 0 && wzrost > 0)
+                {
+                    bmi = waga / Math.Pow(wzrost, 2);
+                    bodymassindex = bmi.ToString();
+                    if (bmi < 16)
+                    {
+                        komunikat = "wygłodzenie";
+                        MessageBox.Show(bodymassindex, komunikat);
+                    }
+                    else if (bmi >= 16 && bmi <= 16.99)
+                    {
+                        komunikat = "wychudzenie";
+                        MessageBox.Show(bodymassindex, komunikat);
+                    }
+                    else if (bmi >= 17 && bmi <= 18.49)
+                    {
+                        komunikat = "niedowaga";
+                        MessageBox.Show(bodymassindex, komunikat);
+                    }
+                    else if (bmi >= 18.5 && bmi <= 24.99)
+                    {
+                        komunikat = "waga prawidłowa";
+                        MessageBox.Show(bodymassindex, komunikat);
+                    }
+                    else if (bmi >= 25 && bmi <= 29.99)
+                    {
+                        komunikat = "nadwaga";
+                        MessageBox.Show(bodymassindex, komunikat);
+                    }
+                    else if (bmi >= 30 && bmi <= 34.99)
+                    {
+                        komunikat = "1 stopień otyłości";
+                        MessageBox.Show(bodymassindex, komunikat);
+                    }
+                    else if (bmi >= 35 && bmi <= 39.99)
+                    {
+                        komunikat = "2 stopień otyłości";
+                        MessageBox.Show(bodymassindex, komunikat);
+                    }
+                    else if (bmi >= 40)
+                    {
+                        komunikat = "otyłość skrajna";
+                        MessageBox.Show(bodymassindex, komunikat);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Nieprawidłowe dane! ");
+                }
+            }
+            catch (Exception)
+            //catch - bez nawiasu jest domyślnie exception
+            {
+                MessageBox.Show("Nieznany wyjątek! ");
+            }
+
+
+        }

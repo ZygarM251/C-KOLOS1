@@ -1,0 +1,39 @@
+    void RysujLinie(double x1, double x2, double y1, double y2, int grubość, SolidColorBrush kolor)
+    {
+        var myLine = new Line();
+        myLine.Stroke = kolor;
+        myLine.X1 = x1;
+        myLine.X2 = x2;
+        myLine.Y1 = y1;
+        myLine.Y2 = y2;
+        myLine.StrokeThickness = grubość;
+        Schodki.Children.Add(myLine);
+
+    }
+
+    private void Rysuj_Click(object sender, RoutedEventArgs e)
+    {
+
+        Ellipse head = new Ellipse();
+        head.Width = 100; 
+        head.Height = 100; 
+        head.Fill = Brushes.Black; 
+        head.Stroke = Brushes.Black; 
+        head.StrokeThickness = 5; 
+        Canvas.SetLeft(head, 150); 
+        Canvas.SetTop(head, 50); 
+        Schodki.Children.Add(head);
+
+        // Rysowanie tułowia
+        RysujLinie(200, 200, 150, 200, 5, Brushes.Black);
+
+        // Rysowanie ramion
+        RysujLinie(200, 150, 175, 200, 5, Brushes.Black);
+        RysujLinie(200, 250, 175, 200, 5, Brushes.Black);
+
+        // Rysowanie nóg
+        RysujLinie(200, 150, 200, 300, 5, Brushes.Black);
+        RysujLinie(200, 250, 200, 300, 5, Brushes.Black);
+
+    }
+}

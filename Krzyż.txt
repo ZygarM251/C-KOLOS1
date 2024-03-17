@@ -1,0 +1,32 @@
+ void RysujLinie(double x1, double x2, double y1, double y2, int grubość,SolidColorBrush kolor)
+ {
+     CzyśćPłótno();
+     var myLine = new Line();
+     myLine.Stroke = kolor;
+     myLine.X1 = x1;
+     myLine.X2 = x2;
+     myLine.Y1 = y1;
+     myLine.Y2 = y2;
+     myLine.StrokeThickness = grubość;
+     Krzyz.Children.Add(myLine);
+
+ }
+
+private void RysujKrzyż_Click(object sender, RoutedEventArgs e)
+{
+    double h = Convert.ToInt32(Krzyz.ActualHeight);
+    double w = Convert.ToInt32(Krzyz.ActualWidth);
+
+    double height = h / 2;
+    double width = w / 2;
+
+    double X1, X2,Y1,Y2;
+    X1 = width - width / 2;
+    X2 = width + width / 2;
+
+    Y1 = height + height / 2;
+    Y2 = height - height / 2;
+    
+    RysujLinie(X1, X2, height,height, 3, System.Windows.Media.Brushes.Red);
+    RysujLinie(width, width, Y1, Y2, 3, System.Windows.Media.Brushes.Red);
+}

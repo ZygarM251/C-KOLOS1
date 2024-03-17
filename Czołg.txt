@@ -1,0 +1,77 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace MateuszGuzyGrupaC
+{
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            InitializeComponent();
+        }
+
+        private void rysujButton_Click(object sender, RoutedEventArgs e)
+        {
+            int odstep = 50;
+
+            for(int i = 0; i < 4; i++)
+            {
+                Ellipse kolo = new Ellipse();
+                kolo.Width = 40;
+                kolo.Height = 40;
+                kolo.Fill = Brushes.Black;
+                Canvas.SetLeft(kolo, odstep);
+                Canvas.SetTop(kolo, 250);
+
+                odstep += 50;
+                canvas.Children.Add(kolo);
+            }
+
+            Rectangle kadlub = new Rectangle();
+            kadlub.Width = 200;
+            kadlub.Height = 100;
+            kadlub.Fill = Brushes.Black;
+            Canvas.SetLeft(kadlub, 40);
+            Canvas.SetTop(kadlub, 140);
+
+            canvas.Children.Add(kadlub);
+
+            Rectangle wieza = new Rectangle();
+            wieza.Width = 100;
+            wieza.Height = 50;
+            wieza.Fill = Brushes.Black;
+            Canvas.SetLeft(wieza, 100);
+            Canvas.SetTop(wieza, 90);
+            canvas.Children.Add(wieza);
+
+            Line lufa = new Line
+            {
+                X1 = 200,
+                Y1 = 110,
+                X2 = 295,
+                Y2 = 110,
+                Stroke = Brushes.Black,
+                StrokeThickness = 8
+            };
+
+            canvas.Children.Add(lufa);
+
+
+        }
+    }
+}
