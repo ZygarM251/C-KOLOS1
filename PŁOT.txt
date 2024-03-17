@@ -1,0 +1,39 @@
+    void rysuj(int x1, int y1, int x2, int y2, int grubosc)
+    {
+        var myLine = new Line();
+        myLine.Stroke = System.Windows.Media.Brushes.Brown;
+        myLine.StrokeThickness = grubosc;
+        myLine.X1 = x1;
+        myLine.Y1 = y1;
+        myLine.X2 = x2;
+        myLine.Y2 = y2;
+        cvRysunek.Children.Add(myLine);
+    }
+
+    void rysujSztachete(int x1, int y1, int x2, int y2, int grubosc)
+    {
+        var myLine = new Line();
+        myLine.Stroke = System.Windows.Media.Brushes.Black;
+        myLine.StrokeThickness = grubosc;
+        myLine.X1 = x1;
+        myLine.Y1 = y1;
+        myLine.X2 = x2;
+        myLine.Y2 = y2;
+        cvRysunek.Children.Add(myLine);
+    }
+
+    public MainWindow()
+    {
+        InitializeComponent();
+
+        rysujSztachete(40,230,560,230,12);
+        rysujSztachete(40, 130, 560, 130, 12);
+
+        int przesuniecie = 10;
+
+        for(int i=0; i<20; i++)
+        {
+            rysuj(50 + i * przesuniecie, 260, 50 + i * przesuniecie, 80, 7);
+        }
+    }
+}
