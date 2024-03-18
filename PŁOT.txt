@@ -1,39 +1,55 @@
-    void rysuj(int x1, int y1, int x2, int y2, int grubosc)
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace Płot
+{
+    /// <summary>
+    /// Interaction logic for MainWindow.xaml
+    /// </summary>
+    public partial class MainWindow : Window
     {
-        var myLine = new Line();
-        myLine.Stroke = System.Windows.Media.Brushes.Brown;
-        myLine.StrokeThickness = grubosc;
-        myLine.X1 = x1;
-        myLine.Y1 = y1;
-        myLine.X2 = x2;
-        myLine.Y2 = y2;
-        cvRysunek.Children.Add(myLine);
-    }
-
-    void rysujSztachete(int x1, int y1, int x2, int y2, int grubosc)
-    {
-        var myLine = new Line();
-        myLine.Stroke = System.Windows.Media.Brushes.Black;
-        myLine.StrokeThickness = grubosc;
-        myLine.X1 = x1;
-        myLine.Y1 = y1;
-        myLine.X2 = x2;
-        myLine.Y2 = y2;
-        cvRysunek.Children.Add(myLine);
-    }
-
-    public MainWindow()
-    {
-        InitializeComponent();
-
-        rysujSztachete(40,230,560,230,12);
-        rysujSztachete(40, 130, 560, 130, 12);
-
-        int przesuniecie = 10;
-
-        for(int i=0; i<20; i++)
+        public MainWindow()
         {
-            rysuj(50 + i * przesuniecie, 260, 50 + i * przesuniecie, 80, 7);
+            InitializeComponent();
+
+        }
+        void Deska(int x1, int y1, int x2, int y2, int grubosc)
+        {
+            var Linia = new Line
+            {
+                Stroke = System.Windows.Media.Brushes.SandyBrown,
+                StrokeThickness = grubosc,
+                X1 = x1,
+                Y1 = y1,
+                X2 = x2,
+                Y2 = y2
+        };
+            cvRysunek.Children.Add(Linia);
+        }
+
+        private void Plot_Click(object sender, RoutedEventArgs e)
+        {
+            Deska(40, 230, 560, 230, 15);
+            Deska(40, 130, 560, 130, 15);
+
+            int odstęp = 20;
+
+            for (int i = 0; i < 26; i++)
+            {
+                Deska(50 + i * odstęp, 260, 50 + i * odstęp, 80, 10);
+            }
         }
     }
 }
